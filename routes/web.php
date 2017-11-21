@@ -57,7 +57,9 @@ Route::get('/dfa2', function () {
 Route::get('/dfa3', function () {
     return view('dfa3');
 });
-
+Route::get('/admin/lto', function () {
+    return view('admin.admin_lto');
+});
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
