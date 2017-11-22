@@ -60,6 +60,12 @@ Route::get('/dfa3', function () {
 Route::get('/admin/lto', function () {
     return view('admin.admin_lto');
 });
+Route::get('/admin/dfa', function () {
+    return view('admin.admin_dfa');
+});
+Route::get('/admin/nbi', function () {
+    return view('admin.admin_nbi');
+});
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
