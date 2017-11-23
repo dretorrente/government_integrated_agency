@@ -3,7 +3,7 @@
     <section class="content-header">
         <h1>NBI</h1>
         <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+            <li><a href="/home"><i class="fa fa-dashboard"></i> Dashboard</a></li>
             <li class="active"></li>
         </ol>
     </section>
@@ -26,11 +26,6 @@
                                 <td>
                                     <ul>
                                         <li><b>Title: </b>asdfasdfas</li>
-                                        <li><b>Subtitle: </b>asdfasdfas</li>
-                                        <li><b>Description: </b>fasdfasdfa</li>
-                                        <li><b>Year: </b>adfasfasf</li>
-                                        <li><b>Researchers: <i>asdfasdff</i> | </b></li>
-                                        <li><b>Advisers: <i>dasda</i> | </b></li>
                                     </ul>
                                 </td>
                                 <td>

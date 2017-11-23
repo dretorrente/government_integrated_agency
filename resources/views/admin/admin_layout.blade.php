@@ -97,7 +97,6 @@
             <!-- Sidebar Menu-->
             <ul class="sidebar-menu">
                 <li class="header">MENU</li>
-                <li><a href="/admin"><i class="fa fa-user"></i><span>Users</span></a></li>
                 <li class="treeview requestLTO"><a href="#"><i class="fa fa-commenting"></i><span>Requests</span><span class="pull-right-container"></span></a>
                     <ul class="treeview-menu">
                         <li><a href="/admin/lto"><i class="fa fa-circle-o"> </i><span>LTO</span><span class="pull-right-container"></span></a></li>

@@ -55,6 +55,13 @@
                     </a>
 
                     <ul class="dropdown-menu nav-item" role="menu">
+                        @if(Auth::user()->role === 'admin')
+                            <li>
+                                <a href="/admin">
+                                    Admin
+                                </a>
+                            </li>
+                        @endif
                         <li>
                             <a href="{{ route('logout') }}"
                                onclick="event.preventDefault();

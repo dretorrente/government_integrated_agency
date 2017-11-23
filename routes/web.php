@@ -57,6 +57,11 @@ Route::get('/dfa2', function () {
 Route::get('/dfa3', function () {
     return view('dfa3');
 });
+
+Route::get('/admin', function () {
+    return view('admin.admin');
+});
+
 Route::get('/admin/lto', function () {
     return view('admin.admin_lto');
 });
