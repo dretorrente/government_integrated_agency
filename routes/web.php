@@ -75,3 +75,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::post('/lto/upload',[
+    'uses' => 'ltoRecordController@upload',
+    'as'   => 'upload'
+]);

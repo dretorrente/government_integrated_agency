@@ -52,8 +52,13 @@
     <!-- Jumbotron Header -->
     <header class="jumbotron my-4">
         <h1 class="display-3">Student Application: Procedures and Requirements</h1>
-
     </header>
+     @if (Session::has('message'))
+        <div class="alert {{ Session::get('alert-class', 'alert-info') }} alert-dismissable">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            {{ Session::get('message') }}
+        </div>
+    @endif
             <img style="margin: auto;" src="img/sampleStudent.png">
             <div class="body">
                 <h2 class="title">Requirements</h2>
@@ -138,9 +143,28 @@
             </div>
         </div>
     </div>
+    <div class="col-lg-6">
+        <form action="{{route('upload')}}" method="post" enctype="multipart/form-data">
+            {{csrf_field()}}
+            <div class="col-lg-12">
+                    <h4>Please Upload your files here.</h4>
+                    <div class="input-group">
+                        <label class="input-group-btn">
+                            <span class="btn btn-primary">
+                                Browse&hellip; <input type="file" name="file" style="display: none;" multiple>
+                            </span>
+                        </label>
+                        <input type="text" class="form-control" readonly style="height: 38px">
+                    </div>
+                    <span class="help-block">
+                        Make sure that you fill up all required fields.
+                    </span>
+                </div>
+                        <button type="submit" class="btn btn-primary" style="background-color:#0062cc">Submit</button>
+        </form>
+    </div>
 </div>
 </div>
-
 <!-- Footer -->
 <footer class="py-5 bg-dark">
     <div class="container">
@@ -156,3 +180,32 @@
 </body>
 
 </html>
+<script type="text/javascript">
+    $(function() {
+
+  // We can attach the `fileselect` event to all file inputs on the page
+  $(document).on('change', ':file', function() {
+    var input = $(this),
+        numFiles = input.get(0).files ? input.get(0).files.length : 1,
+        label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+    input.trigger('fileselect', [numFiles, label]);
+  });
+
+  // We can watch for our custom `fileselect` event like this
+  $(document).ready( function() {
+      $(':file').on('fileselect', function(event, numFiles, label) {
+
+          var input = $(this).parents('.input-group').find(':text'),
+              log = numFiles > 1 ? numFiles + ' files selected' : label;
+
+          if( input.length ) {
+              input.val(log);
+          } else {
+              if( log ) alert(log);
+          }
+
+      });
+  });
+  
+});
+</script>
