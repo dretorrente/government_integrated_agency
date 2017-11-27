@@ -10,13 +10,13 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/land_transportation_office', function () {
+    return view('lto');
+});
 Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/lto', function () {
-    return view('lto');
-});
 
 Route::get('/lto2', function () {
     return view('lto2');

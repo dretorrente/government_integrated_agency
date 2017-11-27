@@ -107,7 +107,7 @@
               </div>
             </span>
                 <h4 class="service-heading">LTO</h4>
-                <a class="btn btn-xl js-scroll-trigger" href="{{url('lto')}}">Open Services</a>
+                <a class="btn btn-xl js-scroll-trigger" href="{{url('land_transportation_office')}}">Open Services</a>
             </div>
             <div class="col-md-4">
             <span class="fa-stack fa-4x">

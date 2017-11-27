@@ -21,11 +21,11 @@ class LtoRecordController extends Controller
 		    if ($ltoRecords->save()) {
 		    	Session::flash('message','Your LTO Form has been succesfully submit!');
             	Session::flash('alert-class', 'alert-info');  
-            	return redirect('/lto2');
+            	return redirect('/land_transportation_office');
 		    } else {
 		    	Session::flash('message','Your LTO Form has been failed submit!');
             	Session::flash('alert-class', 'alert-danger');  
-            	return redirect('/lto2');
+            	return redirect('/land_transportation_office');
 		    }
     	}
     }
