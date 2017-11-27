@@ -53,12 +53,6 @@
     <header class="jumbotron my-4">
         <h1 class="display-3">Student Application: Procedures and Requirements</h1>
     </header>
-     @if (Session::has('message'))
-        <div class="alert {{ Session::get('alert-class', 'alert-info') }} alert-dismissable">
-            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-            {{ Session::get('message') }}
-        </div>
-    @endif
             <img style="margin: auto;" src="img/sampleStudent.png">
             <div class="body">
                 <h2 class="title">Requirements</h2>
@@ -121,7 +115,7 @@
 
     <div class="row text-center">
         <div class="col-lg-3 col-md-6 mb-4">
-            <div class="card">
+            <div class="card" style="height: 388px;">
                 <img class="card-img-top" src="img/app.PNG" alt="">
                 <div class="card-body">
                     <h4 class="card-title">Application Form</h4>
@@ -155,12 +149,13 @@
                             </span>
                         </label>
                         <input type="text" class="form-control" readonly style="height: 38px">
+                        <input type="hidden" name="class" value="Student Application">
                     </div>
                     <span class="help-block">
                         Make sure that you fill up all required fields.
                     </span>
                 </div>
-                        <button type="submit" class="btn btn-primary" style="background-color:#0062cc">Submit</button>
+                <button type="submit" class="btn btn-primary" style="background-color:#0062cc">Submit</button>
         </form>
     </div>
 </div>

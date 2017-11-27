@@ -13,10 +13,11 @@ class LtoRecordController extends Controller
     		$ltoRecords = new LtoRecord;
 			$image              = $request->file('file');
 			$input['imagename'] = time().'.'.$image->getClientOriginalExtension();
-			$destinationPath    = public_path('/images');
+			$destinationPath    = public_path('/LTO/images');
 		    $image->move($destinationPath, $input['imagename']);
 		    $ltoRecords->email = Auth::User()->email;
-		    $ltoRecords->image = 'public/images/'.$input['imagename'];
+		    $ltoRecords->image = 'public/LTO/images/'.$input['imagename'];
+		    $ltoRecords->class = $request['class'];
 		    if ($ltoRecords->save()) {
 		    	Session::flash('message','Your LTO Form has been succesfully submit!');
             	Session::flash('alert-class', 'alert-info');  
@@ -26,11 +27,6 @@ class LtoRecordController extends Controller
             	Session::flash('alert-class', 'alert-danger');  
             	return redirect('/lto2');
 		    }
-		    // $this->ltoRecords->add($input);
-		    // return back()->with('success','Image Upload successful');
     	}
-    	//  $this->validate($request, [
-	    //     'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-	    // ]);
     }
 }

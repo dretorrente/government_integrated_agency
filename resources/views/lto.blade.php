@@ -38,7 +38,12 @@
 
 <!-- Page Content -->
 <div class="container">
-
+    @if (Session::has('message'))
+        <div class="alert {{ Session::get('alert-class', 'alert-info') }} alert-dismissable">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            {{ Session::get('message') }}
+        </div>
+    @endif
     <!-- Jumbotron Header -->
     <header class="jumbotron my-4">
         <h1 class="display-3">LTO Procedures and Requirements</h1>

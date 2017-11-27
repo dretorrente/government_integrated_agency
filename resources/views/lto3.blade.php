@@ -119,6 +119,27 @@
                 </div>
             </div>
         </div>
+        <div class="col-lg-6">
+        <form action="{{route('upload')}}" method="post" enctype="multipart/form-data">
+            {{csrf_field()}}
+            <div class="col-lg-12">
+                    <h4>Please Upload your files here.</h4>
+                    <div class="input-group">
+                        <label class="input-group-btn">
+                            <span class="btn btn-primary">
+                                Browse&hellip; <input type="file" name="file" style="display: none;" multiple>
+                            </span>
+                        </label>
+                        <input type="text" class="form-control" readonly style="height: 38px">
+                        <input type="hidden" name="class" value="Non-Professional Application">
+                    </div>
+                    <span class="help-block">
+                        Make sure that you fill up all required fields.
+                    </span>
+                </div>
+                        <button type="submit" class="btn btn-primary" style="background-color:#0062cc">Submit</button>
+        </form>
+    </div>
     </div>
 </div>
 
@@ -137,3 +158,32 @@
 </body>
 
 </html>
+<script type="text/javascript">
+    $(function() {
+
+  // We can attach the `fileselect` event to all file inputs on the page
+  $(document).on('change', ':file', function() {
+    var input = $(this),
+        numFiles = input.get(0).files ? input.get(0).files.length : 1,
+        label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+    input.trigger('fileselect', [numFiles, label]);
+  });
+
+  // We can watch for our custom `fileselect` event like this
+  $(document).ready( function() {
+      $(':file').on('fileselect', function(event, numFiles, label) {
+
+          var input = $(this).parents('.input-group').find(':text'),
+              log = numFiles > 1 ? numFiles + ' files selected' : label;
+
+          if( input.length ) {
+              input.val(log);
+          } else {
+              if( log ) alert(log);
+          }
+
+      });
+  });
+  
+});
+</script>

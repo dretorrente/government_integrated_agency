@@ -20,6 +20,7 @@ class CreateLtoRecords extends Migration
             $table->string('email');
             $table->enum('status',['pending', 'accept','decline'])->default('pending');
             $table->string('image');
+            $table->string('class');
             $table->timestamps();
         });
     }
