@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <!-- Font Awesome-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Ionicons-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Data Tables-->
@@ -97,15 +98,89 @@
             <!-- Sidebar Menu-->
             <ul class="sidebar-menu">
                 <li class="header">MENU</li>
-                <li class="treeview requestLTO"><a href="#"><i class="fa fa-commenting"></i><span>Requests</span><span class="pull-right-container"></span></a>
+                <li class="treeview menu-content">
+                    <a href="#">
+                        <i class="fa fa-id-card-o" aria-hidden="true"></i>
+                        <span class="lte-text">LTO</span>
+                        <span class="pull-right-container"></span>
+                    </a>
                     <ul class="treeview-menu">
-                        <li><a href="/admin/lto"><i class="fa fa-circle-o"> </i><span>LTO</span><span class="pull-right-container"></span></a></li>
-                        <li><a href="/admin/nbi"><i class="fa fa-circle-o"></i><span>NBI</span><span class="pull-right-container"></span></a></li>
-                        <li><a href="/admin/dfa"><i class="fa fa-circle-o"></i><span>DFA</span><span class="pull-right-container"></span></a></li>
+                        <li>
+                            <a href="/admin/lto">
+                                <i class="fa fa-square" aria-hidden="true"></i>
+                                <span>Student Application</span>
+                                <span class="pull-right-container"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/admin/nbi">
+                                <i class="fa fa-square" aria-hidden="true"></i>
+                                <span>Non-Professional Application</span>
+                                <span class="pull-right-container"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/admin/dfa">
+                                <i class="fa fa-square" aria-hidden="true"></i>
+                                <span>Professional Application</span>
+                                <span class="pull-right-container"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/admin/dfa">
+                                <i class="fa fa-square" aria-hidden="true"></i>
+                                <span>License Renewal</span>
+                                <span class="pull-right-container"></span>
+                            </a>
+                        </li>
                     </ul>
-                    <!-- /.sidebar-menu-->
                 </li>
-                <!-- /.sidebar-->
+                <li class="treeview menu-content">
+                    <a href="#">
+                        <i class="fa fa-balance-scale" aria-hidden="true"></i>
+                        <span class="lte-text">NBI</span>
+                        <span class="pull-right-container"></span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li>
+                            <a href="/admin/lto">
+                                <i class="fa fa-square" aria-hidden="true"></i>
+                                <span>NBI Clearance</span>
+                                <span class="pull-right-container"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/admin/nbi">
+                                <i class="fa fa-square" aria-hidden="true"></i>
+                                <span>NBI Clearance Online Application</span>
+                                <span class="pull-right-container"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="treeview menu-content">
+                    <a href="#">
+                        <i class="fa fa-address-book-o" aria-hidden="true"></i>
+                        <span class="lte-text">DFA</span>
+                        <span class="pull-right-container"></span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li>
+                            <a href="/admin/lto">
+                                <i class="fa fa-square" aria-hidden="true"></i>
+                                <span>New Application</span>
+                                <span class="pull-right-container"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/admin/nbi">
+                                <i class="fa fa-square" aria-hidden="true"></i>
+                                <span>Passport Renewal</span>
+                                <span class="pull-right-container"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
             </ul>
             <!-- Content Wrapper. Contains page content-->
         </section>
