@@ -40,7 +40,6 @@
 <div class="container">
     @if (Session::has('message'))
         <div class="alert {{ Session::get('alert-class', 'alert-info') }} alert-dismissable">
-            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
             {{ Session::get('message') }}
         </div>
     @endif
@@ -63,7 +62,7 @@
                     <p class="card-text">- Form</p>
                 </div>
                 <div class="card-footer">
-                    <a class="btn btn-xl js-scroll-trigger" href="{{url('lto2')}}">Open Services</a>
+                    <a class="btn btn-xl js-scroll-trigger" href="{{url('/land_transportation_office/student_application')}}">Open Services</a>
                 </div>
             </div>
         </div>
@@ -78,7 +77,7 @@
                     <p class="card-text">- Form</p>
                 </div>
                 <div class="card-footer">
-                    <a class="btn btn-xl js-scroll-trigger" href="{{url('lto3')}}">Open Services</a>
+                    <a class="btn btn-xl js-scroll-trigger" href="{{url('/land_transportation_office/non_professional_application')}}">Open Services</a>
                 </div>
             </div>
         </div>
@@ -93,7 +92,7 @@
                     <p class="card-text">- Form</p>
                 </div>
                 <div class="card-footer">
-                    <a class="btn btn-xl js-scroll-trigger" href="{{url('lto4')}}">Open Services</a>
+                    <a class="btn btn-xl js-scroll-trigger" href="{{url('/land_transportation_office/professional_application')}}">Open Services</a>
                 </div>
             </div>
         </div>
@@ -108,7 +107,7 @@
                     <p class="card-text">- Form</p>
                 </div>
                 <div class="card-footer">
-                    <a class="btn btn-xl js-scroll-trigger" href="{{url('renewal')}}">Open Services</a>
+                    <a class="btn btn-xl js-scroll-trigger" href="{{url('/land_transportation_office/license_renewal')}}">Open Services</a>
                 </div>
             </div>
         </div>

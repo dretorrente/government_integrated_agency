@@ -76,11 +76,11 @@
                     <li class="dropdown user user-menu">
                         <!-- Menu Toggle Button--><a href="#" data-toggle="dropdown" class="dropdown-toggle">
                             <!-- The user image in the navbar--><img src="http://static.tumblr.com/0hxowcx/TKtm8i1j5/iron_man_face_avatar_01.gif" alt="User Image" class="user-image"/>
-                            <!-- hidden-xs hides the username on small devices so only the image appears.--><span class="hidden-xs">asdfasdfadfas</span></a>
+                            <!-- hidden-xs hides the username on small devices so only the image appears.--><span class="hidden-xs">Admin</span></a>
                         <ul class="dropdown-menu">
                             <!-- The user image in the menu-->
                             <li class="user-header"><img src="http://static.tumblr.com/0hxowcx/TKtm8i1j5/iron_man_face_avatar_01.gif" alt="User Image" class="img-circle"/>
-                                <p>Dave - Engineer | Billionaire<small>@asdasda</small></p>
+                                <p>Dave - Engineer | Billionaire<small>@Admin</small></p>
                             </li>
                             <!-- Menu Footer-->
                             <li class="user-footer">
@@ -106,28 +106,28 @@
                     </a>
                     <ul class="treeview-menu">
                         <li>
-                            <a href="/admin/lto">
+                            <a href="/admin/student_application">
                                 <i class="fa fa-square" aria-hidden="true"></i>
                                 <span>Student Application</span>
                                 <span class="pull-right-container"></span>
                             </a>
                         </li>
                         <li>
-                            <a href="/admin/nbi">
+                            <a href="/admin/non_professional_application">
                                 <i class="fa fa-square" aria-hidden="true"></i>
                                 <span>Non-Professional Application</span>
                                 <span class="pull-right-container"></span>
                             </a>
                         </li>
                         <li>
-                            <a href="/admin/dfa">
+                            <a href="/admin/professional_application">
                                 <i class="fa fa-square" aria-hidden="true"></i>
                                 <span>Professional Application</span>
                                 <span class="pull-right-container"></span>
                             </a>
                         </li>
                         <li>
-                            <a href="/admin/dfa">
+                            <a href="/admin/license_renewal">
                                 <i class="fa fa-square" aria-hidden="true"></i>
                                 <span>License Renewal</span>
                                 <span class="pull-right-container"></span>
@@ -180,6 +180,13 @@
                             </a>
                         </li>
                     </ul>
+                </li>
+                <li class="menu-content">
+                    <a href="/admin/lto">
+                        <i class="fa fa-users" aria-hidden="true"></i>
+                        <span>Users</span>
+                        <span class="pull-right-container"></span>
+                    </a>
                 </li>
             </ul>
             <!-- Content Wrapper. Contains page content-->

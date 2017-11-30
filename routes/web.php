@@ -18,21 +18,31 @@ Route::get('/', function () {
 });
 
 
-Route::get('/lto2', function () {
+Route::get('/land_transportation_office/student_application', function () {
     return view('lto2');
 });
 
-Route::get('/lto3', function () {
+Route::get('/land_transportation_office/non_professional_application', function () {
     return view('lto3');
 });
 
-Route::get('/lto4', function () {
+Route::get('/land_transportation_office/professional_application', function () {
     return view('lto4');
 });
 
-Route::get('/renewal', function () {
+Route::get('/land_transportation_office/license_renewal', function () {
     return view('renewal');
 });
+
+Route::match(['get', 'post'], '/land_transportation_office/accept_application/{id}',[
+    'uses' => 'LtoRecordController@accept_application',
+    'as'   => 'accept_application'
+]);
+
+Route::match(['get', 'post'], '/land_transportation_office/decline_application/{id}',[
+    'uses' => 'LtoRecordController@decline_application',
+    'as'   => 'decline_application'
+]);
 
 Route::get('/nbi', function () {
     return view('nbi');
@@ -62,9 +72,18 @@ Route::get('/admin', function () {
     return view('admin.admin');
 });
 
-Route::get('/admin/lto', function () {
-    return view('admin.admin_lto');
-});
+Route::get('/admin/student_application', [
+    'uses' => 'ltoRecordController@student_application'
+]);
+
+Route::get('/admin/non_professional_application', [
+    'uses' => 'ltoRecordController@non_professional_application'
+]);
+
+Route::get('/admin/professional_application', [
+    'uses' => 'ltoRecordController@professional_application'
+]);
+
 Route::get('/admin/dfa', function () {
     return view('admin.admin_dfa');
 });

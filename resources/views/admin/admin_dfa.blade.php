@@ -25,7 +25,7 @@
                                 <td>asdasda</td>
                                 <td>
                                     <ul>
-                                        <li><b>Title: </b>asdfasdfas</li>
+                                        <li><b>Title: </b>Admin</li>
                                     </ul>
                                 </td>
                                 <td>
