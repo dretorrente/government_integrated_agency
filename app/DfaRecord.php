@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class LtoRecord extends Model
+class DfaRecord extends Model
 {
     protected $fillable = [
         'email', 'status', ' image', 'role', 'class'

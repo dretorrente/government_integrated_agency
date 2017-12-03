@@ -116,7 +116,7 @@
               </div>
             </span>
                 <h4 class="service-heading">NBI</h4>
-                <a class="btn btn-xl js-scroll-trigger" href="{{url('nbi')}}">Open Services</a>
+                <a class="btn btn-xl js-scroll-trigger" href="{{url('national_bureau')}}">Open Services</a>
             </div>
             <div class="col-md-4">
             <span class="fa-stack fa-4x">
@@ -125,7 +125,7 @@
               </div>
             </span>
                 <h4 class="service-heading">DFA</h4>
-                <a class="btn btn-xl js-scroll-trigger" href="{{url('dfa')}}">Open Services</a>
+                <a class="btn btn-xl js-scroll-trigger" href="{{url('department_of_foreign_affair')}}">Open Services</a>
             </div>
         </div>
     </div>

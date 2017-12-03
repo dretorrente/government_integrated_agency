@@ -142,15 +142,15 @@
                         <span class="pull-right-container"></span>
                     </a>
                     <ul class="treeview-menu">
-                        <li>
+                        <!-- <li>
                             <a href="/admin/lto">
                                 <i class="fa fa-square" aria-hidden="true"></i>
                                 <span>NBI Clearance</span>
                                 <span class="pull-right-container"></span>
                             </a>
-                        </li>
+                        </li> -->
                         <li>
-                            <a href="/admin/nbi">
+                            <a href="/admin/online_application">
                                 <i class="fa fa-square" aria-hidden="true"></i>
                                 <span>NBI Clearance Online Application</span>
                                 <span class="pull-right-container"></span>
@@ -166,14 +166,14 @@
                     </a>
                     <ul class="treeview-menu">
                         <li>
-                            <a href="/admin/lto">
+                            <a href="/admin/new_application">
                                 <i class="fa fa-square" aria-hidden="true"></i>
                                 <span>New Application</span>
                                 <span class="pull-right-container"></span>
                             </a>
                         </li>
                         <li>
-                            <a href="/admin/nbi">
+                            <a href="/admin/passport_renewal">
                                 <i class="fa fa-square" aria-hidden="true"></i>
                                 <span>Passport Renewal</span>
                                 <span class="pull-right-container"></span>

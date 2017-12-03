@@ -120,26 +120,26 @@
             </div>
         </div>
         <div class="col-lg-6">
-        <form action="{{route('upload')}}" method="post" enctype="multipart/form-data">
-            {{csrf_field()}}
-            <div class="col-lg-12">
-                    <h4>Please Upload your files here.</h4>
-                    <div class="input-group">
-                        <label class="input-group-btn">
-                            <span class="btn btn-primary">
-                                Browse&hellip; <input type="file" name="file" style="display: none;" multiple>
-                            </span>
-                        </label>
-                        <input type="text" class="form-control" readonly style="height: 38px">
-                        <input type="hidden" name="class" value="Non-Professional Application">
+            <form action="{{route('upload')}}" method="post" enctype="multipart/form-data">
+                {{csrf_field()}}
+                <div class="col-lg-12">
+                        <h4>Please Upload your files here.</h4>
+                        <div class="input-group">
+                            <label class="input-group-btn">
+                                <span class="btn btn-primary">
+                                    Browse&hellip; <input type="file" name="file" style="display: none;" multiple>
+                                </span>
+                            </label>
+                            <input type="text" class="form-control" readonly style="height: 38px">
+                            <input type="hidden" name="class" value="Non-Professional Application">
+                        </div>
+                        <span class="help-block">
+                            Make sure that you fill up all required fields.
+                        </span>
                     </div>
-                    <span class="help-block">
-                        Make sure that you fill up all required fields.
-                    </span>
-                </div>
-                <button type="submit" class="btn btn-primary" style="background-color:#0062cc">Submit</button>
-        </form>
-    </div>
+                    <button type="submit" class="btn btn-primary" style="background-color:#0062cc">Submit</button>
+            </form>
+        </div>
     </div>
 </div>
 

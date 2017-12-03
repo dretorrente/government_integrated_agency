@@ -38,7 +38,11 @@
 
 <!-- Page Content -->
 <div class="container">
-
+    @if (Session::has('message'))
+        <div class="alert {{ Session::get('alert-class', 'alert-info') }} alert-dismissable">
+            {{ Session::get('message') }}
+        </div>
+    @endif
     <!-- Jumbotron Header -->
     <header class="jumbotron my-4">
         <h1 class="display-3">DFA Procedures and Requirements</h1>
@@ -58,7 +62,7 @@
                     <p class="card-text">- Form</p>
                 </div>
                 <div class="card-footer">
-                    <a class="btn btn-xl js-scroll-trigger" href="{{url('dfa2')}}">Open Services</a>
+                    <a class="btn btn-xl js-scroll-trigger" href="{{url('department_of_foreign_affair/new_application')}}">Open Services</a>
                 </div>
             </div>
         </div>
@@ -73,7 +77,7 @@
                     <p class="card-text">- Form</p>
                 </div>
                 <div class="card-footer">
-                    <a class="btn btn-xl js-scroll-trigger" href="{{url('dfa3')}}">Open Services</a>
+                    <a class="btn btn-xl js-scroll-trigger" href="{{url('department_of_foreign_affair/passport_renewal')}}">Open Services</a>
                 </div>
             </div>
         </div>

@@ -125,40 +125,40 @@
                 </div>
             </div>
         </div>
-    <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card">
-            <img class="card-img-top" src="../img/affidavit.png" alt="">
-            <div class="card-body">
-                <h4 class="card-title">Affidavit Form</h4>
-                <p class="card-text">For applicant/s below 18 years old</p>
-            </div>
-            <div class="card-footer">
-                <a href="{{asset('file/Permit.pdf')}}" class="btn btn-primary">Download Form</a>
+        <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card">
+                <img class="card-img-top" src="../img/affidavit.png" alt="">
+                <div class="card-body">
+                    <h4 class="card-title">Affidavit Form</h4>
+                    <p class="card-text">For applicant/s below 18 years old</p>
+                </div>
+                <div class="card-footer">
+                    <a href="{{asset('file/Permit.pdf')}}" class="btn btn-primary">Download Form</a>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="col-lg-6">
-        <form action="{{route('upload')}}" method="post" enctype="multipart/form-data">
-            {{csrf_field()}}
-            <div class="col-lg-12">
-                    <h4>Please Upload your files here.</h4>
-                    <div class="input-group">
-                        <label class="input-group-btn">
-                            <span class="btn btn-primary">
-                                Browse&hellip; <input type="file" name="file" style="display: none;" multiple>
-                            </span>
-                        </label>
-                        <input type="text" class="form-control" readonly style="height: 38px">
-                        <input type="hidden" name="class" value="Student Application">
+        <div class="col-lg-6">
+            <form action="{{route('upload')}}" method="post" enctype="multipart/form-data">
+                {{csrf_field()}}
+                <div class="col-lg-12">
+                        <h4>Please Upload your files here.</h4>
+                        <div class="input-group">
+                            <label class="input-group-btn">
+                                <span class="btn btn-primary">
+                                    Browse&hellip; <input type="file" name="file" style="display: none;" multiple>
+                                </span>
+                            </label>
+                            <input type="text" class="form-control" readonly style="height: 38px">
+                            <input type="hidden" name="class" value="Student Application">
+                        </div>
+                        <span class="help-block">
+                            Make sure that you fill up all required fields.
+                        </span>
                     </div>
-                    <span class="help-block">
-                        Make sure that you fill up all required fields.
-                    </span>
-                </div>
-                <button type="submit" class="btn btn-primary" style="background-color:#0062cc">Submit</button>
-        </form>
+                    <button type="submit" class="btn btn-primary" style="background-color:#0062cc">Submit</button>
+            </form>
+        </div>
     </div>
-</div>
 </div>
 <!-- Footer -->
 <footer class="py-5 bg-dark">

@@ -11,29 +11,35 @@ use Mail;
 class LtoRecordController extends Controller
 {
     public function upload(Request $request) {
-    	if ($request->isMethod('post')) {
-    		$ltoRecords = new LtoRecord;
-			$image              = $request->file('file');
-			$input['imagename'] = time().'.'.$image->getClientOriginalExtension();
-			$destinationPath    = 'img/LTO';
-		    $image->move($destinationPath, $input['imagename']);
-		    $ltoRecords->email = Auth::User()->email;
-		    $ltoRecords->image = 'img/LTO/'.$input['imagename'];
-		    $ltoRecords->class = $request['class'];
-		    if ($ltoRecords->save()) {
-		    	Session::flash('message','Your LTO Form has been succesfully submit!');
-            	Session::flash('alert-class', 'alert-info');  
-            	return redirect('/land_transportation_office');
-		    } else {
-		    	Session::flash('message','Your LTO Form has been failed submit!');
-            	Session::flash('alert-class', 'alert-danger');  
-            	return redirect('/land_transportation_office');
-		    }
-    	}
+        if ($request->isMethod('post')) {
+            $ltoRecords = new LtoRecord;
+            $image              = $request->file('file');
+            if ($image) {
+                $input['imagename'] = time().'.'.$image->getClientOriginalExtension();
+                $destinationPath    = 'img/LTO';
+                $image->move($destinationPath, $input['imagename']);
+                $ltoRecords->email = Auth::User()->email;
+                $ltoRecords->image = 'img/LTO/'.$input['imagename'];
+                $ltoRecords->class = $request['class'];
+                if ($ltoRecords->save()) {
+                    Session::flash('message','Your LTO Form has been succesfully submit!');
+                    Session::flash('alert-class', 'alert-info');  
+                    return redirect('/land_transportation_office');
+                } else {
+                    Session::flash('message','Your LTO Form has been failed submit!');
+                    Session::flash('alert-class', 'alert-danger');  
+                    return redirect('/land_transportation_office');
+                }
+            } else {
+                Session::flash('message','Your LTO Form has been failed submit!');
+                Session::flash('alert-class', 'alert-danger');  
+                return redirect('/land_transportation_office');
+            }
+        }
     }
 
     public function student_application() {
-    	$ltoRecords = DB::table('lto_records')
+        $ltoRecords = DB::table('lto_records')
                     ->select('lto_records.*')
                     ->where('lto_records.class', '=', 'Student Application')
                     ->get();
@@ -41,7 +47,7 @@ class LtoRecordController extends Controller
     }
 
     public function non_professional_application() {
-    	$ltoRecords = DB::table('lto_records')
+        $ltoRecords = DB::table('lto_records')
                     ->select('lto_records.*')
                     ->where('lto_records.class', '=', 'Non-Professional Application')
                     ->get();
@@ -49,7 +55,7 @@ class LtoRecordController extends Controller
     }
 
     public function professional_application() {
-    	$ltoRecords = DB::table('lto_records')
+        $ltoRecords = DB::table('lto_records')
                     ->select('lto_records.*')
                     ->where('lto_records.class', '=', 'Professional Application')
                     ->get();
@@ -57,32 +63,32 @@ class LtoRecordController extends Controller
     }
 
     public function accept_application($id) {
-		$ltoRecords         = LtoRecord::find($id);
-		$ltoRecords->status = "accept";
+        $ltoRecords         = LtoRecord::find($id);
+        $ltoRecords->status = "accept";
 
-		if ($ltoRecords->save()) {
-			Mail::send('admin.lto_email', ['admin_message' => 'Your request has been approved by the admin'], function ($m) use ($ltoRecords) {
-	            $m->from('lihuza@duck2.club', 'Application approved');
-	            $m->to($ltoRecords->email)->subject('Land Transportation Office');
+        if ($ltoRecords->save()) {
+            Mail::send('admin.lto_email', ['admin_message' => 'Your request has been approved by the admin'], function ($m) use ($ltoRecords) {
+                $m->from('lihuza@duck2.club', 'Application approved');
+                $m->to($ltoRecords->email)->subject('Land Transportation Office');
             });
             Session::flash('message','Successfully user accepted');
             Session::flash('alert-class', 'alert-info'); 
             return redirect()->back();
-		}
+        }
     }
 
     public function decline_application($id) {
-		$ltoRecords         = LtoRecord::find($id);
-		$ltoRecords->status = "decline";
+        $ltoRecords         = LtoRecord::find($id);
+        $ltoRecords->status = "decline";
 
-		if ($ltoRecords->save()) {
-			Mail::send('admin.lto_email', ['admin_message' => 'Your application has been declined by the admin'], function ($m) use ($ltoRecords) {
-	            $m->from('lihuza@duck2.club', 'Application decline');
-	            $m->to($ltoRecords->email)->subject('Land Transportation Office');
+        if ($ltoRecords->save()) {
+            Mail::send('admin.lto_email', ['admin_message' => 'Your application has been declined by the admin'], function ($m) use ($ltoRecords) {
+                $m->from('lihuza@duck2.club', 'Application decline');
+                $m->to($ltoRecords->email)->subject('Land Transportation Office');
             });
             Session::flash('message','Successfully user decline');
             Session::flash('alert-class', 'alert-info'); 
             return redirect()->back();
-		}
+        }
     }
 }

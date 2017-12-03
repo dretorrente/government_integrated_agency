@@ -11,17 +11,17 @@
     <title>NBI</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom fonts for this template -->
-    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
 
     <!-- Custom styles for this template -->
-    <link href="css/agency.min.css" rel="stylesheet">
+    <link href="../css/agency.min.css" rel="stylesheet">
 
 </head>
 
@@ -37,7 +37,7 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="{{url('nbi')}}">NBI Service
+                    <a class="nav-link" href="{{url('national_bureau')}}">NBI Service
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
@@ -54,7 +54,7 @@
         <h1 class="display-4">NBI Clearance: Online Application, Requirements, Fees and Processing</h1>
 
     </header>
-    <img style="margin: auto;" src="img/online.png">
+    <img style="margin: auto;" src="../img/online.png">
     <div class="body">
         <br/>
         <h2 class="title">Requirements</h2>
@@ -95,32 +95,40 @@
 
         </p>
     </div>
-
-    <!--<div class="row text-center">
+    <div class="row text-center">
         <div class="col-lg-3 col-md-6 mb-4">
-            <div class="card">
-                <img class="card-img-top" src="img/app.PNG" alt="">
+            <div class="card" style="height: 388px;">
+                <img class="card-img-top" src="../img/online.png" alt="">
                 <div class="card-body">
-                    <h4 class="card-title">Application Form</h4>
+                    <h4 class="card-title">CLEARANCE APPLICATION FORM</h4>
                 </div>
                 <div class="card-footer">
-                    <a href="{{asset('file/application.pdf')}}" class="btn btn-primary">Download Form</a>
+                    <a href="{{asset('file/nbiform.pdf')}}" class="btn btn-primary" target="__blank">Download Form</a>
                 </div>
             </div>
         </div>
-        <div class="col-lg-3 col-md-6 mb-4">
-            <div class="card">
-                <img class="card-img-top" src="img/affidavit.png" alt="">
-                <div class="card-body">
-                    <h4 class="card-title">Affidavit Form</h4>
-                    <p class="card-text">For applicant/s below 18 years old</p>
-                </div>
-                <div class="card-footer">
-                    <a href="{{asset('file/Permit.pdf')}}" class="btn btn-primary">Download Form</a>
-                </div>
-            </div>
+        <div class="col-lg-6">
+            <form action="{{route('nbiUpload')}}" method="post" enctype="multipart/form-data">
+                {{csrf_field()}}
+                <div class="col-lg-12">
+                        <h4>Please Upload your files here.</h4>
+                        <div class="input-group">
+                            <label class="input-group-btn">
+                                <span class="btn btn-primary">
+                                    Browse&hellip; <input type="file" name="file" style="display: none;" multiple>
+                                </span>
+                            </label>
+                            <input type="text" class="form-control" readonly style="height: 38px">
+                            <input type="hidden" name="class" value="Online Application">
+                        </div>
+                        <span class="help-block">
+                            Make sure that you fill up all required fields.
+                        </span>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="background-color:#0062cc">Submit</button>
+            </form>
         </div>
-    </div>-->
+    </div>
 </div>
 
 <!-- Footer -->
@@ -132,9 +140,38 @@
 </footer>
 
 <!-- Bootstrap core JavaScript -->
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../vendor/jquery/jquery.min.js"></script>
+<script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 </body>
 
 </html>
+<script type="text/javascript">
+    $(function() {
+
+  // We can attach the `fileselect` event to all file inputs on the page
+  $(document).on('change', ':file', function() {
+    var input = $(this),
+        numFiles = input.get(0).files ? input.get(0).files.length : 1,
+        label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+    input.trigger('fileselect', [numFiles, label]);
+  });
+
+  // We can watch for our custom `fileselect` event like this
+  $(document).ready( function() {
+      $(':file').on('fileselect', function(event, numFiles, label) {
+
+          var input = $(this).parents('.input-group').find(':text'),
+              log = numFiles > 1 ? numFiles + ' files selected' : label;
+
+          if( input.length ) {
+              input.val(log);
+          } else {
+              if( log ) alert(log);
+          }
+
+      });
+  });
+  
+});
+</script>
