@@ -61,7 +61,8 @@ td.align-middle {
                     <tfoot>
                     <tr>
                         <th>Request By</th>
-                        <th>Details</th>
+                        <th>Status</th>
+                        <th>Image</th>
                         <th>Action</th>
                     </tr>
                     </tfoot>

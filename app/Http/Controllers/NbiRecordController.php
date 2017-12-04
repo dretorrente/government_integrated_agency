@@ -44,7 +44,7 @@ class NbiRecordController extends Controller
                     ->select('nbi_records.*')
                     ->where('nbi_records.class', '=', 'Online Application')
                     ->get();
-        return view('admin.admin_online_application',['online_applications' => $nbiRecords]);            
+        return view('nbi.admin_online_application',['online_applications' => $nbiRecords]);            
     }
 
     public function accept_application($id) {
@@ -52,7 +52,7 @@ class NbiRecordController extends Controller
         $nbiRecords->status = "accept";
 
         if ($nbiRecords->save()) {
-            Mail::send('admin.nbi_email', ['admin_message' => 'Your request has been approved by the admin'], function ($m) use ($nbiRecords) {
+            Mail::send('nbi.nbi_email', ['admin_message' => 'Your request has been approved by the admin'], function ($m) use ($nbiRecords) {
                 $m->from('lihuza@duck2.club', 'Application approved');
                 $m->to($nbiRecords->email)->subject('Land Transportation Office');
             });
@@ -67,7 +67,7 @@ class NbiRecordController extends Controller
         $nbiRecords->status = "decline";
 
         if ($nbiRecords->save()) {
-            Mail::send('admin.nbi_email', ['admin_message' => 'Your application has been declined by the admin'], function ($m) use ($nbiRecords) {
+            Mail::send('nbi.nbi_email', ['admin_message' => 'Your application has been declined by the admin'], function ($m) use ($nbiRecords) {
                 $m->from('lihuza@duck2.club', 'Application decline');
                 $m->to($nbiRecords->email)->subject('Land Transportation Office');
             });

@@ -43,7 +43,7 @@ class DfaRecordController extends Controller
                     ->select('dfa_records.*')
                     ->where('dfa_records.class', '=', 'New Application')
                     ->get();
-        return view('admin.admin_new_application',['new_applications' => $dfaRecords]);            
+        return view('dfa.admin_new_application',['new_applications' => $dfaRecords]);            
     }
 
     public function passport_renewal() {
@@ -51,7 +51,7 @@ class DfaRecordController extends Controller
                     ->select('dfa_records.*')
                     ->where('dfa_records.class', '=', 'Passport Renewal')
                     ->get();
-        return view('admin.admin_passport_renewal',['passport_renewal' => $dfaRecords]);            
+        return view('dfa.admin_passport_renewal',['passport_renewal' => $dfaRecords]);            
     }
 
     public function accept_application($id) {
@@ -59,7 +59,7 @@ class DfaRecordController extends Controller
         $dfaRecords->status = "accept";
 
         if ($dfaRecords->save()) {
-            Mail::send('admin.dfa_email', ['admin_message' => 'Your request has been approved by the admin'], function ($m) use ($dfaRecords) {
+            Mail::send('dfa.dfa_email', ['admin_message' => 'Your request has been approved by the admin'], function ($m) use ($dfaRecords) {
                 $m->from('lihuza@duck2.club', 'Application approved');
                 $m->to($dfaRecords->email)->subject('Department of Foreign Affairs');
             });
@@ -74,7 +74,7 @@ class DfaRecordController extends Controller
         $dfaRecords->status = "decline";
 
         if ($dfaRecords->save()) {
-            Mail::send('admin.dfa_email', ['admin_message' => 'Your application has been declined by the admin'], function ($m) use ($dfaRecords) {
+            Mail::send('dfa.dfa_email', ['admin_message' => 'Your application has been declined by the admin'], function ($m) use ($dfaRecords) {
                 $m->from('lihuza@duck2.club', 'Application decline');
                 $m->to($dfaRecords->email)->subject('Department of Foreign Affairs');
             });

@@ -18,7 +18,7 @@ td.align-middle {
 }
 </style>
 <section class="content-header">
-    <h1>DFA</h1>
+    <h1>LTO</h1>
     <ol class="breadcrumb">
         <li><a href="/home"><i class="fa fa-dashboard"></i> Dashboard</a></li>
         <li class="active"></li>
@@ -44,15 +44,15 @@ td.align-middle {
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($passport_renewal as $record)
+                        @foreach($non_professional_applications as $record)
                     <tr>
                         <td class="align-middle">{{ $record->email }}</td>
                         <td class="align-middle">{{ ucfirst($record->status) }}</td>
                         <td><a href="{{ URL::to($record->image) }}" target="__blank"><img id="myImg" src="{{ URL::to($record->image) }}" alt="Student Application" width="100" height="100"></a></td>
                         <td class="align-middle center">
                             @if($record->status == "pending") 
-                               <a href="/department_of_foreign_affair/accept_application/{{ $record->id }}" class="btn btn-success">Accept</a>
-                               <a href="/department_of_foreign_affair/decline_application/{{ $record->id }}" class="btn btn-danger">Decline</a>
+                               <a href="/land_transportation_office/accept_application/{{ $record->id }}" class="btn btn-success">Accept</a>
+                               <a href="/land_transportation_office/decline_application/{{ $record->id }}" class="btn btn-danger">Decline</a>
                            @endif
                         </td>
                     </tr>
@@ -61,7 +61,8 @@ td.align-middle {
                     <tfoot>
                     <tr>
                         <th>Request By</th>
-                        <th>Details</th>
+                        <th>Status</th>
+                        <th>Image</th>
                         <th>Action</th>
                     </tr>
                     </tfoot>

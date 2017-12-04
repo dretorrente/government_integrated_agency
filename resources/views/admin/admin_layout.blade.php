@@ -182,7 +182,7 @@
                     </ul>
                 </li>
                 <li class="menu-content">
-                    <a href="/admin/lto">
+                    <a href="/admin/users">
                         <i class="fa fa-users" aria-hidden="true"></i>
                         <span>Users</span>
                         <span class="pull-right-container"></span>

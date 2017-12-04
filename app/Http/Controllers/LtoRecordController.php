@@ -43,7 +43,7 @@ class LtoRecordController extends Controller
                     ->select('lto_records.*')
                     ->where('lto_records.class', '=', 'Student Application')
                     ->get();
-        return view('admin.admin_student_application',['student_applications' => $ltoRecords]);            
+        return view('lto.admin_student_application',['student_applications' => $ltoRecords]);            
     }
 
     public function non_professional_application() {
@@ -51,7 +51,7 @@ class LtoRecordController extends Controller
                     ->select('lto_records.*')
                     ->where('lto_records.class', '=', 'Non-Professional Application')
                     ->get();
-        return view('admin.admin_non_professional_application',['non_professional_applications' => $ltoRecords]);            
+        return view('lto.admin_non_professional_application',['non_professional_applications' => $ltoRecords]);            
     }
 
     public function professional_application() {
@@ -59,7 +59,7 @@ class LtoRecordController extends Controller
                     ->select('lto_records.*')
                     ->where('lto_records.class', '=', 'Professional Application')
                     ->get();
-        return view('admin.admin_professional_application',['professional_applications' => $ltoRecords]);            
+        return view('lto.admin_professional_application',['professional_applications' => $ltoRecords]);            
     }
 
     public function accept_application($id) {
@@ -67,7 +67,7 @@ class LtoRecordController extends Controller
         $ltoRecords->status = "accept";
 
         if ($ltoRecords->save()) {
-            Mail::send('admin.lto_email', ['admin_message' => 'Your request has been approved by the admin'], function ($m) use ($ltoRecords) {
+            Mail::send('lto.lto_email', ['admin_message' => 'Your request has been approved by the admin'], function ($m) use ($ltoRecords) {
                 $m->from('lihuza@duck2.club', 'Application approved');
                 $m->to($ltoRecords->email)->subject('Land Transportation Office');
             });
@@ -82,7 +82,7 @@ class LtoRecordController extends Controller
         $ltoRecords->status = "decline";
 
         if ($ltoRecords->save()) {
-            Mail::send('admin.lto_email', ['admin_message' => 'Your application has been declined by the admin'], function ($m) use ($ltoRecords) {
+            Mail::send('lto.lto_email', ['admin_message' => 'Your application has been declined by the admin'], function ($m) use ($ltoRecords) {
                 $m->from('lihuza@duck2.club', 'Application decline');
                 $m->to($ltoRecords->email)->subject('Land Transportation Office');
             });
